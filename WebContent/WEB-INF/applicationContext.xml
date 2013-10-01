@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans.xsd        
+http://www.springframework.org/schema/context         
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/mvc 
+http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+
+	<context:component-scan base-package="com.stockportfoliosystem"></context:component-scan>
+
+
+	<bean id="userService"
+		class="com.stockportfoliosystem.service.UserServiceImplementation">
+	</bean>
+	<bean id="portfolioService"
+		class="com.stockportfoliosystem.service.PortfolioServiceImplementation">
+	</bean>
+	<bean id="companyService"
+		class="com.stockportfoliosystem.service.CompanyServiceImplementation">
+	</bean>
+	<bean id="stockHistoryService"
+		class="com.stockportfoliosystem.service.StockHistoryServiceImplementation">
+	</bean>
+	<bean id="stockInfoService"
+		class="com.stockportfoliosystem.service.StockInfoServiceImplementation"
+		autowire="byType">
+	</bean>
+
+
+	<bean id="stockHistoryDao"
+		class="com.stockportfoliosystem.dao.StockHistoryDAOImplementation">
+	</bean>
+
+	<bean id="userDao" class="com.stockportfoliosystem.dao.UserDAOImplementation">
+	</bean>
+	<bean id="companyNameDao" class="com.stockportfoliosystem.dao.CompanyDAOImplementation">
+	</bean>
+	<bean id="portfolioDao" class="com.stockportfoliosystem.dao.PortfolioDAOImplementation">
+	</bean>
+	<bean id="stockInfoDao" class="com.stockportfoliosystem.dao.StockInfoDAOImplementation">
+	</bean>
+
+
+
+
+	<bean id="mailUtility" class="com.stockportfoliosystem.util.MailUtility"></bean>
+
+	<bean id="mailBean" class="com.stockportfoliosystem.bean.MailBean"></bean>
+</beans>
