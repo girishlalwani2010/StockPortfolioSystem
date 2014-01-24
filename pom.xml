@@ -341,6 +341,34 @@
 		</dependency>
 
 	</dependencies>
+	
+	
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+				  <tagNameFormat>v@{project.version}</tagNameFormat>
+				  <!-- Disable inherited configuration -->
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>true</useReleaseProfile>
+                    <!--suppressCommitBeforeTag>true</suppressCommitBeforeTag-->
+                    <goals>deploy</goals>
+                    <arguments>-Perforce</arguments>
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	
+	<scm>
+		<connection>scm:git:https://github.com/girishlalwani2010/StockPortfolioSystem</connection>
+		<!-- <developerConnection>scm:perforce:10.61.4.43:1666:D:\work11\sandbox\NeuStarIndia\NB-Automation\dummy\workflow\</developerConnection> -->
+		<!-- <url>scm:perforce:10.61.4.43:1666://sandbox/NeuStarIndia/NB-Automation/dummy/workflow/</url> -->
+	</scm>
+	
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<testSourceDirectory>test</testSourceDirectory>
